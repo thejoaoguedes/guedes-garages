@@ -20,6 +20,43 @@ local function TableContains (tab, val)
     return false
 end
 
+local function GetVehicles(citizenid, garageName, state, cb)
+    local result = nil
+    if not Config.GlobalParking then
+        result = MySQL.Sync.fetchAll('SELECT * FROM player_vehicles WHERE citizenid = @citizenid AND garage = @garage AND state = @state', {
+            ['@citizenid'] = citizenid,
+            ['@garage'] = garageName,
+            ['@state'] = state
+        })
+    else
+        result = MySQL.Sync.fetchAll('SELECT * FROM player_vehicles WHERE citizenid = @citizenid AND state = @state', {
+            ['@citizenid'] = citizenid,
+            ['@state'] = state
+        })
+    end
+    cb(result)
+end
+
+local function GetDepotVehicles(citizenid, state, garage, cb)
+    local result = MySQL.Sync.fetchAll("SELECT * FROM player_vehicles WHERE citizenid = @citizenid AND (state = @state OR garage = @garage OR garage IS NULL or garage = '')", {
+        ['@citizenid'] = citizenid,
+        ['@state'] = state,
+        ['@garage'] = garage
+    })
+    cb(result)
+end
+
+local function GetVehicleByPlate(plate)
+    local vehicles = GetAllVehicles() -- Get all vehicles known to the server
+    for _, vehicle in pairs(vehicles) do
+        local pl = GetVehicleNumberPlateText(vehicle)
+        if pl == plate then
+            return vehicle
+        end
+    end
+    return nil
+end
+
 QBCore.Functions.CreateCallback("qb-garage:server:GetOutsideVehicle", function(source, cb, plate)
     local src = source
     local pData = QBCore.Functions.GetPlayer(src)
@@ -31,6 +68,18 @@ QBCore.Functions.CreateCallback("qb-garage:server:GetOutsideVehicle", function(s
             cb(nil)
         end
     end)
+end)
+
+lib.callback.register('qb-garage:server:IsVehicleOwned', function(source, plate)
+    if OutsideVehicles[plate] then return true end
+
+    MySQL.query('SELECT * FROM player_vehicles WHERE plate = ?', {plate}, function(result)
+        if result[1] then
+            return true
+        end
+    end)
+
+    return false
 end)
 
 QBCore.Functions.CreateCallback("qb-garages:server:GetVehicleLocation", function(source, cb, plate)
@@ -82,56 +131,19 @@ RegisterNetEvent("qb-garage:server:UpdateSpawnedVehicle", function(plate, value)
 end)
 
 QBCore.Functions.CreateCallback('qb-garage:server:spawnvehicle', function (source, cb, vehInfo, coords, warp)
-    local veh = QBCore.Functions.SpawnVehicle(source, vehInfo.vehicle, coords, warp)
-    
-    if not veh or not NetworkGetNetworkIdFromEntity(veh) then
-        print('ISSUE HERE', veh, NetworkGetNetworkIdFromEntity(veh))
+    local netID = QBCore.Functions.CreateVehicleServer(source, vehInfo.vehicle, coords, warp)
+    local veh = NetworkGetEntityFromNetworkId(netID)
+
+    if not netID or not veh then
+        print('ISSUE HERE', netID, veh)
     end
     local vehProps = {}
     local plate = vehInfo.plate
     local result = MySQL.query.await('SELECT mods FROM player_vehicles WHERE plate = ?', {plate})
     if result[1] then vehProps = json.decode(result[1].mods) end
-    local netId = NetworkGetNetworkIdFromEntity(veh)
-    OutsideVehicles[plate] = {netID = netId, entity = veh}
-    cb(netId, vehProps)
+    OutsideVehicles[plate] = {netID = netID, entity = veh}
+    cb(netID, vehProps)
 end)
-
-local function GetVehicles(citizenid, garageName, state, cb)
-    local result = nil
-    if not Config.GlobalParking then
-        result = MySQL.Sync.fetchAll('SELECT * FROM player_vehicles WHERE citizenid = @citizenid AND garage = @garage AND state = @state', {
-            ['@citizenid'] = citizenid,
-            ['@garage'] = garageName,
-            ['@state'] = state
-        })
-    else
-        result = MySQL.Sync.fetchAll('SELECT * FROM player_vehicles WHERE citizenid = @citizenid AND state = @state', {
-            ['@citizenid'] = citizenid,
-            ['@state'] = state
-        })
-    end
-    cb(result)
-end
-
-local function GetDepotVehicles(citizenid, state, garage, cb)
-    local result = MySQL.Sync.fetchAll("SELECT * FROM player_vehicles WHERE citizenid = @citizenid AND (state = @state OR garage = @garage OR garage IS NULL or garage = '')", {
-        ['@citizenid'] = citizenid,
-        ['@state'] = state,
-        ['@garage'] = garage
-    })
-    cb(result)
-end
-
-local function GetVehicleByPlate(plate)
-    local vehicles = GetAllVehicles() -- Get all vehicles known to the server
-    for _, vehicle in pairs(vehicles) do
-        local pl = GetVehicleNumberPlateText(vehicle)
-        if pl == plate then
-            return vehicle
-        end
-    end
-    return nil
-end
 
 QBCore.Functions.CreateCallback("qb-garage:server:GetGarageVehicles", function(source, cb, garage, garageType, category)
     local src = source
@@ -337,7 +349,7 @@ RegisterNetEvent('qb-garage:server:PayDepotPrice', function(data)
     local cashBalance = Player.PlayerData.money["cash"]
     local bankBalance = Player.PlayerData.money["bank"]
 
-    
+
     local vehicle = data.vehicle
 
      MySQL.query('SELECT * FROM player_vehicles WHERE plate = ?', {vehicle.plate}, function(result)
@@ -402,8 +414,8 @@ QBCore.Functions.CreateCallback('qb-garage:server:GetPlayerVehicles', function(s
                 elseif v.state == 2 then
                     v.state = Lang:t("status.impound")
                 end
-                
-                local fullname 
+
+                local fullname
                 if VehicleData["brand"] ~= nil then
                     fullname = VehicleData["brand"] .. " " .. VehicleData["name"]
                 else
