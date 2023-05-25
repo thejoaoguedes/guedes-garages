@@ -983,7 +983,7 @@ Config.Garages = {
         type = 'public',                --public, job, gang, depot
         vehicleCategories = {'car', 'motorcycle', 'other'},
         drawText = 'Estacionamento',                 --car, air, sea
-        debug = true,
+        debug = false,
         ['ParkingSpots'] = {
             vector4(359.53, 270.99, 102.65, 341.37),
             vector4(363.59, 269.88, 102.64, 341.77),
@@ -1601,7 +1601,7 @@ Config.Garages = {
             vector4(-496.19, -182.75, 37.14, 29.96),
             vector4(-499.21, -177.5, 37.3, 30.1),
         },
-        debug = true
+        debug = false
     },
     ['pdfront'] = {
         ['Zone'] = {
@@ -1626,7 +1626,7 @@ Config.Garages = {
             vector4(407.42, -983.95, 28.94, 51.54),
             vector4(407.68, -979.62, 28.94, 51.69),
         },
-        debug = true
+        debug = false
     },
     ['pdgarage'] = {
         ['Zone'] = {
@@ -1668,7 +1668,7 @@ Config.Garages = {
             vector4(425.68, -978.88, 25.21, 269.76),
             vector4(425.68, -976.24, 25.21, 270.49),
         },
-        debug = true
+        debug = false
     },
     ['pdheli'] = {
         ['Zone'] = {
