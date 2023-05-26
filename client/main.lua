@@ -72,13 +72,15 @@ local function GetClosestLocation(locations, loc)
 end
 
 function SetAsMissionEntity(vehicle)
-    SetVehicleHasBeenOwnedByPlayer(vehicle, true)
-    SetEntityAsMissionEntity(vehicle, true, true)
-    SetVehicleIsStolen(vehicle, false)
-    SetVehicleIsWanted(vehicle, false)
-    SetVehRadioStation(vehicle, 'OFF')
-    local id = NetworkGetNetworkIdFromEntity(vehicle)
-    SetNetworkIdCanMigrate(id, true)
+    -- SetVehicleHasBeenOwnedByPlayer(vehicle, true)
+    -- SetEntityAsMissionEntity(vehicle, true, true)
+    -- SetVehicleIsStolen(vehicle, false)
+    -- SetVehicleIsWanted(vehicle, false)
+    -- SetVehRadioStation(vehicle, 'OFF')
+    -- local id = NetworkGetNetworkIdFromEntity(vehicle)
+    -- SetNetworkIdCanMigrate(id, true)
+    -- SetNetworkIdExistsOnAllMachines(id, true)
+    return
 end
 
 function GetVehicleByPlate(plate)
@@ -860,9 +862,19 @@ RegisterNetEvent('qb-garages:client:TakeOutGarage', function(data, cb)
         if Config.SpawnVehiclesServerside then
             QBCore.Functions.TriggerCallback('qb-garage:server:spawnvehicle', function(netId, properties)
                 local veh = NetToVeh(netId)
+
+                print('NETID ', netId, ' - ENT ',veh)
+
                 if not veh or not netId then
                     print("ISSUE HERE: ", netId)
+                    while not veh do
+                        if netId then
+                            veh = NetToVeh(netId)
+                        end
+                        Wait(0)
+                    end
                 end
+
                 UpdateSpawnedVehicle(veh, vehicle, heading, garage, properties)
                 if cb then cb(veh) end
             end, vehicle, location, garage.WarpPlayerIntoVehicle or Config.WarpPlayerIntoVehicle and garage.WarpPlayerIntoVehicle == nil)

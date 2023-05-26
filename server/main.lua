@@ -134,13 +134,24 @@ QBCore.Functions.CreateCallback('qb-garage:server:spawnvehicle', function (sourc
     local netID = QBCore.Functions.CreateVehicleServer(source, vehInfo.vehicle, coords, warp)
     local veh = NetworkGetEntityFromNetworkId(netID)
 
+    print('NETID ', netID, ' - ENT ',veh)
+
     if not netID or not veh then
         print('ISSUE HERE', netID, veh)
+        while not netID or not veh do
+            if netID then
+                veh = NetworkGetEntityFromNetworkId(netID)
+            end
+            Wait(0)
+        end
     end
+
     local vehProps = {}
     local plate = vehInfo.plate
+
     local result = MySQL.query.await('SELECT mods FROM player_vehicles WHERE plate = ?', {plate})
     if result[1] then vehProps = json.decode(result[1].mods) end
+
     OutsideVehicles[plate] = {netID = netID, entity = veh}
     cb(netID, vehProps)
 end)
@@ -370,6 +381,8 @@ end)
 RegisterNetEvent('qb-garages:server:parkVehicle', function(plate)
     local vehicle = GetVehicleByPlate(plate)
     if vehicle then
+        Entity(vehicle).state:set('ServerVehicle', false, true)
+        Wait(100)
         DeleteEntity(vehicle)
     end
 end)
@@ -488,3 +501,83 @@ if Config.EnableTrackVehicleByPlateCommand then
     TriggerClientEvent('qb-garages:client:TrackVehicleByPlate', source, args[1])
     end, Config.TrackVehicleByPlateCommandPermissionLevel)
 end
+
+AddEventHandler('entityRemoved', function (entity)
+    if GetEntityType(entity) == 2 then
+        if Entity(entity).state.ServerVehicle then
+            local plate = GetVehicleNumberPlateText(entity)
+            local coords = GetEntityCoords(entity)
+            local model = GetEntityModel(entity)
+            local script = GetEntityScript(entity)
+            local type = GetVehicleType(entity)
+            local owner = NetworkGetEntityOwner(entity)
+            local fOwner = NetworkGetFirstEntityOwner(entity)
+            local bucket = GetEntityRoutingBucket(entity)
+
+            if owner ~= -1 then
+                local ping = GetPlayerPing(owner)
+                local Player = QBCore.Functions.GetPlayer(owner).PlayerData
+                local pName = Player.charinfo.firstname .. ' ' .. Player.charinfo.lastname
+                local CitizenID = Player.citizenid
+
+                local discord,playerip = '',''
+
+                for k,v in ipairs(GetPlayerIdentifiers(owner)) do
+                    if string.sub(v, 1, string.len("discord:")) == "discord:" then
+                        discord = string.sub(v, string.len("discord:") + 1)
+                    elseif string.sub(v, 1, string.len("ip:")) == "ip:" then
+                        playerip = string.sub(v, string.len("ip:") + 1)
+                    end
+                end
+
+
+                local discord1,playerip1 = '',''
+
+                if not discord          then discord1          = "N/A" else discord1          = discord          end
+                if not playerip         then playerip1         = "N/A" else playerip1         = playerip         end
+
+                local connect = {
+                    {
+                        ["color"] = "000000",
+                        ["title"] = "Veículo Deletado Indevidamente",
+                        ["description"] = "\n**ID: **"..owner.."\n**Nome: **"..pName.."\n**CSN: **"..CitizenID.."\n**Ping: **"..ping.."ms\n** Discord: **"..discord1.."\n**IP:** "..playerip1.."\n\n **Placa:** "..plate.."\n**Script:** "..script.."\n**Coords:** "..coords.."\n**Modelo:** "..model.."\n**Tipo:** "..type.."\n**Bucket:** "..bucket.."\n**Primeiro Dono:** "..fOwner,
+                        ["footer"] = {
+                            text = "4Life RP",
+                            icon_url = "https://i.imgflip.com/185a81.jpg"
+                        },
+                        ["timestamp"] = os.date('!%Y-%m-%dT%H:%M:%S'),
+                        ["author"] = {
+                            name = "4Life RP",
+                            icon_url = "https://i.imgflip.com/185a81.jpg"
+                        },
+                    },
+                }
+                PerformHttpRequest('https://discord.com/api/webhooks/1111705050100809738/H5nZfBoDhCDSPCkPAkl-Mi-Tx0zYdvU4DUGSq43oJaPr-lSbEYd2NJrd8boRxEHExifT', function(err, text, headers) end, 'POST', json.encode({username = "4Life RP", content = "", embeds = connect}), { ['Content-Type'] = 'application/json' })
+            else
+                local connect = {
+                    {
+                        ["color"] = "FFFFFF",
+                        ["title"] = "Veículo Deletado Indevidamente",
+                        ["description"] = "**Placa:** "..plate.."\n**Script:** "..script.."\n**Coords:** "..coords.."\n**Modelo:** "..model.."\n**Tipo:** "..type.."\n**Bucket:** "..bucket.."\n**Primeiro Dono:** "..fOwner,
+                        ["footer"] = {
+                            text = "4Life RP",
+                            icon_url = "https://i.imgflip.com/185a81.jpg"
+                        },
+                        ["timestamp"] = os.date('!%Y-%m-%dT%H:%M:%S'),
+                        ["author"] = {
+                            name = "4Life RP",
+                            icon_url = "https://i.imgflip.com/185a81.jpg"
+                        },
+                    },
+                }
+                PerformHttpRequest('https://discord.com/api/webhooks/1111705050100809738/H5nZfBoDhCDSPCkPAkl-Mi-Tx0zYdvU4DUGSq43oJaPr-lSbEYd2NJrd8boRxEHExifT', function(err, text, headers) end, 'POST', json.encode({username = "4Life RP", content = "", embeds = connect}), { ['Content-Type'] = 'application/json' })
+            end
+
+            Entity(entity).state:set('ServerVehicle', false, true)
+            Wait(100)
+            if DoesEntityExist(entity) then
+                DeleteEntity(entity)
+            end
+        end
+    end
+end)
