@@ -1670,6 +1670,39 @@ Config.Garages = {
         },
         debug = false
     },
+    ['pdgarage2'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(1854.3077392578, 3683.6149902344),
+                vector2(1844.7410888672, 3699.4362792969),
+                vector2(1811.8155517578, 3681.4995117188),
+                vector2(1814.8543701172, 3676.4467773438),
+                vector2(1838.2161865234, 3690.3564453125),
+                vector2(1845.5393066406, 3678.7172851563)
+            },
+            ['minZ'] = 33.0,  -- min height of the parking zone
+            ['maxZ'] = 36.0,  -- max height of the parking zone
+        },
+        label = 'Sandy Garage',
+        type = 'job',
+        job = "police",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'pd1',
+        vehicleCategories = {'emergency'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(1845.06, 3689.87, 33.38, 301.71),
+            vector4(1847.28, 3686.54, 33.38, 299.91),
+            vector4(1848.98, 3682.77, 33.38, 300.21),
+            vector4(1834.64, 3691.66, 33.38, 28.48),
+            vector4(1831.27, 3690.0, 33.38, 30.88),
+            vector4(1827.82, 3688.17, 33.38, 30.32),
+            vector4(1824.68, 3686.39, 33.38, 30.36),
+            vector4(1817.85, 3682.8, 33.38, 30.44),
+            vector4(1814.57, 3680.81, 33.38, 30.01),
+        },
+        debug = false
+    },
     ['pdheli'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
