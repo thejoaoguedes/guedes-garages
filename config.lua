@@ -1606,42 +1606,46 @@ Config.Garages = {
     ['pdfront'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(405.13595581054, -998.57788085938),
-            vector2(410.59521484375, -1002.8664550782),
-            vector2(410.91711425782, -979.44134521484),
-            vector2(405.4065246582, -974.57928466796),
+            vector2(632.19702148438, 24.726711273193),
+            vector2(595.48370361328, 37.822246551514),
+            vector2(578.04113769531, 41.220073699951),
+            vector2(578.86187744141, 37.101783752441),
+            vector2(590.76477050781, 35.020740509033),
+            vector2(630.49798583984, 21.101961135864),
             },
-            ['minZ'] = 28.0,  -- min height of the parking zone
-            ['maxZ'] = 31.0,  -- max height of the parking zone
+            ['minZ'] = 87.36,  -- min height of the parking zone
+            ['maxZ'] = 92.93,  -- max height of the parking zone
 
         },
-        label = 'MRPD Parking',
+        label = 'Estacionamento VWPD',
         type = 'public',
         vehicleCategories = {'car', 'motorcycle', 'other'},
         drawText = 'Estacionamento',
         ["ParkingSpots"] = {
-            vector4(407.44, -997.7, 28.94, 52.87),
-            vector4(407.55, -992.85, 28.94, 51.63),
-            vector4(407.7, -988.49, 28.94, 52.48),
-            vector4(407.42, -983.95, 28.94, 51.54),
-            vector4(407.68, -979.62, 28.94, 51.69),
+            vector4(627.89, 23.74, 87.31, 211.87),
+            vector4(622.16, 25.8, 87.9, 212.14),
+            vector4(616.47, 27.88, 88.5, 210.51),
+            vector4(610.4, 29.99, 89.13, 208.25),
+            vector4(604.69, 31.97, 89.72, 212.09),
+            vector4(598.86, 33.91, 90.32, 208.97),
+            vector4(593.25, 35.9, 90.9, 209.94),
+            vector4(587.43, 37.45, 91.49, 217.86),
+            vector4(581.63, 38.51, 92.08, 215.16),
         },
         debug = false
     },
     ['pdgarage'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-               	vector2(448.33670043945, -998.80895996094),
-                vector2(423.15826416016, -998.98077392578),
-                vector2(423.48205566406, -973.94946289063),
-                vector2(428.74041748047, -974.35272216797),
-                vector2(428.564453125, -984.02642822266),
-                vector2(448.21347045898, -983.94213867188),
+            vector2(590.142578125, -17.226955413818),
+            vector2(562.19476318359, -7.2044277191162),
+            vector2(572.01818847656, 19.777450561523),
+            vector2(599.07214355469, 10.230952262878),
             },
-            ['minZ'] = 24.0,  -- min height of the parking zone
-            ['maxZ'] = 27.0,  -- max height of the parking zone
+            ['minZ'] = 68.0,  -- min height of the parking zone
+            ['maxZ'] = 73.0,  -- max height of the parking zone
         },
-        label = 'MRPD Garage',
+        label = 'Estacionamento VWPD',
         type = 'job',
         job = "police",
         useVehicleSpawner = true,
@@ -1649,24 +1653,24 @@ Config.Garages = {
         vehicleCategories = {'emergency'},
         drawText = 'Estacionamento',
         ["ParkingSpots"] = {
-            vector4(445.67, -997.0, 24.81, 269.98),
-            vector4(445.83, -994.31, 25.21, 267.42),
-            vector4(445.53, -991.53, 25.21, 269.55),
-            vector4(445.51, -988.84, 25.21, 269.43),
-            vector4(445.55, -986.12, 25.21, 270.71),
-            vector4(437.35, -986.1, 25.21, 89.31),
-            vector4(437.27, -988.86, 25.21, 90.05),
-            vector4(437.32, -991.57, 25.21, 90.47),
-            vector4(437.3, -994.26, 25.21, 90.38),
-            vector4(437.31, -996.97, 25.21, 90.1),
-            vector4(425.76, -997.07, 25.21, 270.57),
-            vector4(425.72, -994.41, 25.21, 269.31),
-            vector4(425.72, -991.68, 25.21, 269.53),
-            vector4(425.69, -989.03, 25.21, 270.22),
-            vector4(425.69, -984.26, 25.21, 269.65),
-            vector4(425.67, -981.55, 25.21, 269.33),
-            vector4(425.68, -978.88, 25.21, 269.76),
-            vector4(425.68, -976.24, 25.21, 270.49),
+            vector4(587.98, -15.1, 70.11, 249.84),
+            vector4(589.04, -12.57, 70.11, 249.79),
+            vector4(589.83, -9.74, 70.11, 249.85),
+            vector4(591.93, -4.84, 70.11, 250.13),
+            vector4(592.87, -2.52, 70.11, 249.35),
+            vector4(593.82, 0.15, 70.11, 248.87),
+            vector4(587.02, 2.7, 70.11, 70.32),
+            vector4(585.96, 0.16, 70.11, 70.01),
+            vector4(585.35, -2.56, 70.11, 69.77),
+            vector4(583.21, -7.65, 70.11, 69.35),
+            vector4(582.65, -10.15, 70.11, 69.5),
+            vector4(581.42, -12.58, 70.11, 69.91),
+            vector4(564.9, -6.64, 70.11, 250.24),
+            vector4(566.34, -4.33, 70.11, 250.3),
+            vector4(566.9, -1.67, 70.11, 250.11),
+            vector4(569.16, 3.36, 70.11, 249.22),
+            vector4(569.97, 6.05, 70.11, 249.62),
+            vector4(570.91, 8.67, 70.11, 250.05),
         },
         debug = false
     },
@@ -1706,21 +1710,15 @@ Config.Garages = {
     ['pdheli'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(488.88079833984, -975.19427490234),
-                vector2(488.79931640625, -988.59014892578),
-                vector2(472.90466308594, -988.68371582031),
-                vector2(439.60025024414, -988.56597900391),
-                vector2(439.80548095703, -971.40173339844),
-                vector2(458.6318359375, -971.44787597656),
-                vector2(458.48181152344, -981.54852294922),
-                vector2(463.82485961914, -981.69213867188),
-                vector2(472.22271728516, -981.66552734375),
-                vector2(472.29483032227, -975.14654541016)
+            vector2(622.04962158203, -1.0622293949127),
+            vector2(626.44470214844, 11.818794250488),
+            vector2(639.21820068359, 6.8038377761841),
+            vector2(635.13500976563, -5.1258635520935),
             },
-            ['minZ'] = 35.0,  -- min height of the parking zone
-            ['maxZ'] = 100.0,  -- max height of the parking zone
+            ['minZ'] = 98.0,  -- min height of the parking zone
+            ['maxZ'] = 102.0,  -- max height of the parking zone
         },
-        label = 'Helipad MRPD',
+        label = 'Helipad VWPD',
         type = 'job',
         job = "police",
         useVehicleSpawner = true,
@@ -1729,12 +1727,11 @@ Config.Garages = {
         drawText = 'Heliponto',
         drawTextIcon = 'helicopter-symbol',
         ['ParkingSpots'] = {
-            vector4(449.15432739258, -981.22650146484, 43.691261291504, 90.469596862793),
-            vector4(481.7412109375, -982.18170166016, 41.006729125977, 0.23384791612625)
+            vector4(630.72, 3.54, 99.42, 73.15)
         },
         ParkingDistance = 100.0,
         ExitWarpLocations = { -- Optional, Used for e.g. Boat parking, to teleport the player out of the boat to the closest location defined in the list.
-            vector3(462.64, -982.3, 43.69)
+            vector3(622.83, -2.94, 99.42)
         },
         debug = false
     },
