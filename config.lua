@@ -1946,16 +1946,15 @@ Config.Garages = {
     ['hpgarage'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(283.15054321289, -608.85455322266),
-                vector2(287.4548034668, -609.78137207031),
-                vector2(298.71179199219, -614.04119873047),
-                vector2(302.73745727539, -602.79168701172),
-                vector2(292.74783325195, -597.98468017578)
+                vector2(-837.61828613281, -1234.5961914063),
+                vector2(-840.85815429688, -1238.7720947266),
+                vector2(-847.51983642578, -1233.0681152344),
+                vector2(-844.60333251953, -1229.0952148438)
             },
-            ['minZ'] = 43.0,  -- min height of the parking zone
-            ['maxZ'] = 45.0,  -- max height of the parking zone
+            ['minZ'] = 6.0,  -- min height of the parking zone
+            ['maxZ'] = 8.0,  -- max height of the parking zone
         },
-        label = 'Pillbox Garage',
+        label = 'Viceroy Garage',
         type = 'job',
         job = "ambulance",
         useVehicleSpawner = true,
@@ -1963,10 +1962,8 @@ Config.Garages = {
         vehicleCategories = {'emergency'},
         drawText = 'Estacionamento',
         ["ParkingSpots"] = {
-            vector4(293.88, -610.12, 43.04, 68.79),
-            vector4(294.99, -607.33, 43.05, 69.36),
-            vector4(296.04, -604.45, 43.03, 69.58),
-            vector4(297.19, -601.72, 43.0, 68.65)
+            vector4(-843.76, -1230.38, 6.74, 321.91),
+            vector4(-839.74, -1234.58, 6.74, 320.33)
 
         },
         debug = false
@@ -1974,16 +1971,16 @@ Config.Garages = {
     ['hpheli'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(337.48645019531, -588.23254394531),
-                vector2(340.7971496582, -579.82415771484),
-                vector2(351.10290527344, -575.05865478516),
-                vector2(360.06011962891, -578.34649658203),
-                vector2(364.87145996094, -588.33850097656),
-                vector2(361.49768066406, -597.40502929688),
-                vector2(351.70022583008, -601.97595214844),
-                vector2(342.18856811523, -598.38531494141)
+                vector2(-787.34234619141, -1198.4741210938),
+                vector2(-793.20458984375, -1199.2542724609),
+                vector2(-797.88024902344, -1195.3862304688),
+                vector2(-798.53277587891, -1189.1745605469),
+                vector2(-795.13427734375, -1184.9450683594),
+                vector2(-789.31353759766, -1184.0314941406),
+                vector2(-784.24993896484, -1187.6510009766),
+                vector2(-783.68255615234, -1193.8753662109)
             },
-            ['minZ'] = 73.0,  -- min height of the parking zone
+            ['minZ'] = 50.0,  -- min height of the parking zone
             ['maxZ'] = 100.0,  -- max height of the parking zone
         },
         label = 'Helipad EMS',
@@ -1995,11 +1992,11 @@ Config.Garages = {
         drawText = 'Heliponto',
         drawTextIcon = 'helicopter-symbol',
         ['ParkingSpots'] = {
-            vector4(351.78076171875, -588.24005126953, 74.161682128906, 249.42704772949),
+            vector4(-792.0, -1191.58, 53.42, 48.91),
         },
         ParkingDistance = 100.0,
         ExitWarpLocations = { -- Optional, Used for e.g. Boat parking, to teleport the player out of the boat to the closest location defined in the list.
-            vector3(339.94, -584.29, 74.16)
+            vector3(-788.07, -1197.72, 53.03)
         },
         debug = false
     },
