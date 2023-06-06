@@ -1157,7 +1157,7 @@ Config.Garages = {
         },
         label = "Sandy Parking",
         showBlip = true,
-        blipcoords = vector3(934.95, 3606.59, 32.81),
+        blipcoords = vector3(1708.5, 3776.85, 34.55),
         blipName = 'Estacionamento',
         blipNumber = 607,
         type = 'public',                --public, job, gang, depot
