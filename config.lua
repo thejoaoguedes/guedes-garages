@@ -1147,15 +1147,15 @@ Config.Garages = {
     ['liqourparking'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(934.54669189453, 3604.5546875),
-                vector2(954.29815673828, 3604.1672363281),
-                vector2(954.35180664062, 3626.7893066406),
-                vector2(934.75305175781, 3626.3806152344)
+                vector2(1705.9743652344, 3766.9465332031),
+                vector2(1701.1755371094, 3773.4997558594),
+                vector2(1712.8771972656, 3781.2700195313),
+                vector2(1716.4219970703, 3776.1616210938)
             },
-            ['minZ'] = 31.5,  -- min height of the parking zone
-            ['maxZ'] = 35.99,  -- max height of the parking zone
+            ['minZ'] = 32.5,  -- min height of the parking zone
+            ['maxZ'] = 36.99,  -- max height of the parking zone
         },
-        label = "Liquor Parking",
+        label = "Sandy Parking",
         showBlip = true,
         blipcoords = vector3(934.95, 3606.59, 32.81),
         blipName = 'Estacionamento',
@@ -1163,7 +1163,12 @@ Config.Garages = {
         type = 'public',                --public, job, gang, depot
         vehicleCategories = {'car', 'motorcycle', 'other'},
         drawText = 'Estacionamento',                 --car, air, sea
-        debug = false
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(1705.17, 3772.44, 34.11, 217.75),
+            vector4(1708.79, 3774.39, 34.09, 214.74),
+            vector4(1712.23, 3776.84, 34.1, 213.33),
+        }
     },
     ['haanparking'] = {
         ['Zone'] = {
@@ -1997,6 +2002,36 @@ Config.Garages = {
         ParkingDistance = 100.0,
         ExitWarpLocations = { -- Optional, Used for e.g. Boat parking, to teleport the player out of the boat to the closest location defined in the list.
             vector3(-788.07, -1197.72, 53.03)
+        },
+        debug = false
+    },
+    ['viceroyparking'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+            vector2(-830.21331787109, -1194.2377929688),
+            vector2(-826.35150146484, -1189.6387939453),
+            vector2(-811.35809326172, -1202.3270263672),
+            vector2(-814.80596923828, -1206.283203125)
+            },
+            ['minZ'] = 4.0,  -- min height of the parking zone
+            ['maxZ'] = 8.0,  -- max height of the parking zone
+
+        },
+        label = 'Viceroy Parking',
+        showBlip = true,
+        blipcoords = vector3(1689.03, 4773.71, 41.92),
+        blipName = 'Estacionamento',
+        blipNumber = 607,
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(-827.16, -1193.47, 6.36, 140.2),
+            vector4(-824.73, -1195.42, 6.47, 139.6),
+            vector4(-822.27, -1197.48, 6.58, 139.35),
+            vector4(-819.81, -1199.61, 6.67, 139.29),
+            vector4(-817.29, -1201.53, 6.69, 139.21),
+            vector4(-814.8, -1203.61, 6.69, 139.08)
         },
         debug = false
     },
