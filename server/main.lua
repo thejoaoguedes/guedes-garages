@@ -581,3 +581,9 @@ AddEventHandler('entityRemoved', function (entity)
         end
     end
 end)
+
+lib.callback.register('guedes-garages:server:isVehicleSpawned', function(source, plate)
+    if OutsideVehicles[plate] or VehicleSpawnerVehicles[plate] then
+        return true
+    end
+end)
