@@ -186,7 +186,61 @@ Config.JobVehicles = {
                 ["polmav"] = "Maverick",
             },
         }
-    }
+    },
+    ['ottos'] = { -- jobGarageIdentifier
+        label = "Guincho",
+        job = 'ottos',
+        vehicles = {
+            [0] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [1] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [2] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [3] = {
+                ["flatbedm2"] = "Guincho",
+            },
+        }
+    },
+    ['harmony'] = { -- jobGarageIdentifier
+        label = "Guincho",
+        job = 'harmony',
+        vehicles = {
+            [0] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [1] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [2] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [3] = {
+                ["flatbedm2"] = "Guincho",
+            },
+        }
+    },
+    ['bikers'] = { -- jobGarageIdentifier
+        label = "Guincho",
+        job = 'bikers',
+        vehicles = {
+            [0] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [1] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [2] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [3] = {
+                ["flatbedm2"] = "Guincho",
+            },
+        }
+    },
 }
 
 -- '/restorelostcars <destination_garage>' allows you to restore cars that have been parked in garages which no longer exist in the config (garage renamed or removed). The restored cars get sent to the destination garage or if left empty to a random garage in the list.
@@ -2032,6 +2086,77 @@ Config.Garages = {
             vector4(-819.81, -1199.61, 6.67, 139.29),
             vector4(-817.29, -1201.53, 6.69, 139.21),
             vector4(-814.8, -1203.61, 6.69, 139.08)
+        },
+        debug = false
+    },
+    ['ottosguincho'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+            vector2(830.92858886719, -791.30926513672),
+            vector2(836.15539550781, -788.60540771484),
+            vector2(839.18774414063, -794.42712402344),
+            vector2(834.35064697266, -796.95251464844)
+            },
+            ['minZ'] = 24.0,  -- min height of the parking zone
+            ['maxZ'] = 28.0,  -- max height of the parking zone
+        },
+        label = "Otto's Guincho",
+        type = 'job',
+        job = "ottos",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'ottos',
+        vehicleCategories = {'car'},
+        drawText = 'Guincho',
+        ["ParkingSpots"] = {
+            vector4(832.8, -795.81, 26.03, 113.2),
+            vector4(831.82, -793.01, 26.03, 115.36),
+        },
+        debug = false
+    },
+    ['harmonyguincho'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+            vector2(1170.2449951172, 2645.9516601563),
+            vector2(1162.8624267578, 2646.0676269531),
+            vector2(1162.8604736328, 2633.7412109375),
+            vector2(1170.2633056641, 2634.1623535156)
+            },
+            ['minZ'] = 35.0,  -- min height of the parking zone
+            ['maxZ'] = 40.0,  -- max height of the parking zone
+        },
+        label = 'Harmony Guincho',
+        type = 'job',
+        job = "harmony",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'harmony',
+        vehicleCategories = {'car'},
+        drawText = 'Guincho',
+        ["ParkingSpots"] = {
+            vector4(1167.35, 2640.41, 37.58, 358.4),
+            vector4(1162.97, 2640.03, 37.69, 359.44),
+        },
+        debug = false
+    },
+    ['bikersguincho'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+            vector2(1965.2652587891, 3778.8930664063),
+            vector2(1969.3541259766, 3771.9484863281),
+            vector2(1965.5610351563, 3769.7426757813),
+            vector2(1961.8115234375, 3776.8078613281)
+            },
+            ['minZ'] = 30.0,  -- min height of the parking zone
+            ['maxZ'] = 34.0,  -- max height of the parking zone
+        },
+        label = 'Bikers Guincho',
+        type = 'job',
+        job = "bikers",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'bikers',
+        vehicleCategories = {'car'},
+        drawText = 'Guincho',
+        ["ParkingSpots"] = {
+            vector4(1965.76, 3773.96, 31.97, 31.31)
         },
         debug = false
     },
