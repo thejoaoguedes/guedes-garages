@@ -223,6 +223,24 @@ Config.JobVehicles = {
             },
         }
     },
+    ['xnoz'] = { -- jobGarageIdentifier
+        label = "Guincho",
+        job = 'xnoz',
+        vehicles = {
+            [0] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [1] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [2] = {
+                ["flatbedm2"] = "Guincho",
+            },
+            [3] = {
+                ["flatbedm2"] = "Guincho",
+            },
+        }
+    },
     ['bikers'] = { -- jobGarageIdentifier
         label = "Guincho",
         job = 'bikers',
@@ -2134,6 +2152,29 @@ Config.Garages = {
         ["ParkingSpots"] = {
             vector4(1167.35, 2640.41, 37.58, 358.4),
             vector4(1162.97, 2640.03, 37.69, 359.44),
+        },
+        debug = false
+    },
+    ['xnozguincho'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+            vector2(-15.625204086304, 6437.1811523438),
+            vector2(-18.603105545044, 6440.7094726563),
+            vector2(-25.942300796509, 6433.2216796875),
+            vector2(-23.154674530029, 6429.8051757813)
+            },
+            ['minZ'] = 29.0,  -- min height of the parking zone
+            ['maxZ'] = 33.0,  -- max height of the parking zone
+        },
+        label = 'Xnoz Guincho',
+        type = 'job',
+        job = "xnoz",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'xnoz',
+        vehicleCategories = {'car'},
+        drawText = 'Guincho',
+        ["ParkingSpots"] = {
+            vector4(-21.0, 6435.14, 31.52, 314.6),
         },
         debug = false
     },
