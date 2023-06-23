@@ -248,8 +248,6 @@ QBCore.Functions.CreateCallback("qb-garage:server:GetGarageVehicles", function(s
     end
 end)
 
-
-
 QBCore.Functions.CreateCallback("qb-garage:server:checkOwnership", function(source, cb, plate, garageType, garage, gang)
     local src = source
     local pData = QBCore.Functions.GetPlayer(src)
@@ -465,7 +463,6 @@ local function GetRandomPublicGarage()
     end
 end
 
-
 -- Command to restore lost cars (garage: 'None' or something similar)
 QBCore.Commands.Add("restorelostcars", "Restores cars that were parked in a grage that no longer exists in the config or is invalid (name change or removed).", {{name = "destination_garage", help = "(Optional) Garage where the cars are being sent to."}}, false,
 function(source, args)
@@ -586,4 +583,8 @@ lib.callback.register('guedes-garages:server:isVehicleSpawned', function(source,
     if OutsideVehicles[plate] or VehicleSpawnerVehicles[plate] then
         return true
     end
+end)
+
+exports('CheckVehicleIsOwned', function(plate)
+    return OutsideVehicles[plate]
 end)
