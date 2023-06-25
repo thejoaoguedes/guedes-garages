@@ -2110,13 +2110,13 @@ Config.Garages = {
     ['ottosguincho'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(830.92858886719, -791.30926513672),
-            vector2(836.15539550781, -788.60540771484),
-            vector2(839.18774414063, -794.42712402344),
-            vector2(834.35064697266, -796.95251464844)
+            vector2(-1393.8309326172, -464.3623046875),
+            vector2(-1394.2497558594, -456.25018310547),
+            vector2(-1402.3265380859, -457.04577636719),
+            vector2(-1401.3712158203, -465.50021362305)
             },
-            ['minZ'] = 24.0,  -- min height of the parking zone
-            ['maxZ'] = 28.0,  -- max height of the parking zone
+            ['minZ'] = 32.0,  -- min height of the parking zone
+            ['maxZ'] = 36.0,  -- max height of the parking zone
         },
         label = "Otto's Guincho",
         type = 'job',
@@ -2126,8 +2126,7 @@ Config.Garages = {
         vehicleCategories = {'car'},
         drawText = 'Guincho',
         ["ParkingSpots"] = {
-            vector4(832.8, -795.81, 26.03, 113.2),
-            vector4(831.82, -793.01, 26.03, 115.36),
+            vector4(-1399.46, -460.33, 34.57, 98.23)
         },
         debug = false
     },
