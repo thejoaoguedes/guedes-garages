@@ -2200,6 +2200,33 @@ Config.Garages = {
         },
         debug = false
     },
+    ['southrockford'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(-689.35107421875, -1104.4060058594),
+                vector2(-703.17462158203, -1113.1878662109),
+                vector2(-706.98260498047, -1107.1800537109),
+                vector2(-693.48345947266, -1098.6638183594)
+            },
+            ['minZ'] = 10.00,  -- min height of the parking zone
+            ['maxZ'] = 20.89,  -- max height of the parking zone
+        },
+        label = "Hotel Parking",
+        showBlip = true,
+        blipcoords = vector3(-698.52691650391, -1105.9908447266, 14.525324821472),
+        blipName = 'Estacionamento',
+        blipNumber = 607,
+        type = 'public',                --public, job, gang, depot
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Estacionamento',                 --car, air, sea
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(-693.04, -1102.74, 14.28, 212.93),
+            vector4(-696.65, -1104.79, 14.28, 213.32),
+            vector4(-700.01, -1106.91, 14.28, 213.26),
+            vector4(-703.54, -1109.43, 14.28, 213.32)
+        }
+    },
 }
 
 Config.HouseGarages = {} -- DO NOT TOUCH!
