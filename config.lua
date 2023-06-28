@@ -137,6 +137,34 @@ Config.JobVehicles = {
                 ["mbu1rb"] = "PD Bike",
                 ["pd_dirtbike"] = "PD Sanchez",
             },
+            [3] = {
+                ["npolvic"] = "PD Victoria",
+                ["npolchar"] = "PD Charger",
+                ["npolexp"] = "PD Explorer",
+                ["mbu1rb"] = "PD Bike",
+                ["pd_dirtbike"] = "PD Sanchez",
+            },
+            [4] = {
+                ["npolvic"] = "PD Victoria",
+                ["npolchar"] = "PD Charger",
+                ["npolexp"] = "PD Explorer",
+                ["mbu1rb"] = "PD Bike",
+                ["pd_dirtbike"] = "PD Sanchez",
+            },
+            [5] = {
+                ["npolvic"] = "PD Victoria",
+                ["npolchar"] = "PD Charger",
+                ["npolexp"] = "PD Explorer",
+                ["mbu1rb"] = "PD Bike",
+                ["pd_dirtbike"] = "PD Sanchez",
+            },
+            [6] = {
+                ["npolvic"] = "PD Victoria",
+                ["npolchar"] = "PD Charger",
+                ["npolexp"] = "PD Explorer",
+                ["mbu1rb"] = "PD Bike",
+                ["pd_dirtbike"] = "PD Sanchez",
+            },
         }
     },
     ['pd2'] = { -- jobGarageIdentifier
@@ -148,9 +176,20 @@ Config.JobVehicles = {
             },
             [1] = {
                 ["polmav"] = "Maverick",
-
             },
             [2] = {
+                ["polmav"] = "Maverick",
+            },
+            [3] = {
+                ["polmav"] = "Maverick",
+            },
+            [4] = {
+                ["polmav"] = "Maverick",
+            },
+            [5] = {
+                ["polmav"] = "Maverick",
+            },
+            [6] = {
                 ["polmav"] = "Maverick",
             },
         }
@@ -164,9 +203,20 @@ Config.JobVehicles = {
             },
             [1] = {
                 ["ambulance4"] = "Ambulância",
-
             },
             [2] = {
+                ["ambulance4"] = "Ambulância",
+            },
+            [3] = {
+                ["ambulance4"] = "Ambulância",
+            },
+            [4] = {
+                ["ambulance4"] = "Ambulância",
+            },
+            [5] = {
+                ["ambulance4"] = "Ambulância",
+            },
+            [6] = {
                 ["ambulance4"] = "Ambulância",
             },
         }
@@ -183,6 +233,18 @@ Config.JobVehicles = {
 
             },
             [2] = {
+                ["polmav"] = "Maverick",
+            },
+            [3] = {
+                ["polmav"] = "Maverick",
+            },
+            [4] = {
+                ["polmav"] = "Maverick",
+            },
+            [5] = {
+                ["polmav"] = "Maverick",
+            },
+            [6] = {
                 ["polmav"] = "Maverick",
             },
         }
@@ -260,7 +322,6 @@ Config.JobVehicles = {
         }
     },
 }
-
 -- '/restorelostcars <destination_garage>' allows you to restore cars that have been parked in garages which no longer exist in the config (garage renamed or removed). The restored cars get sent to the destination garage or if left empty to a random garage in the list.
 -- NOTE: This may also send helis and boats to said garaga so choose wisely
 Config.RestoreCommandPermissionLevel = 'god' -- sets the permission level for the above mentioned command
