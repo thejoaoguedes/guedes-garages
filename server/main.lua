@@ -311,13 +311,77 @@ RegisterNetEvent('qb-garage:server:updateVehicle', function(state, fuel, engine,
         if Config.StoreDamageAccuratly then
             MySQL.update('UPDATE player_vehicles SET state = ?, garage = ?, fuel = ?, engine = ?, body = ?, mods = ?, parkingspot = ?, damage = ? WHERE plate = ?',{state, garage, fuel, engine, body, json.encode(properties), json.encode(location), json.encode(damage), plate})
         else
-            MySQL.update('UPDATE player_vehicles SET state = ?, garage = ?, fuel = ?, engine = ?, body = ?, mods = ?, parkingspot = ? WHERE plate = ?',{state, garage, fuel, engine, body, json.encode(properties), json.encode(location), plate})
+            local result = MySQL.query.await('SELECT mods FROM player_vehicles WHERE plate = ?', {plate})
+            local propertiesNew = properties
+            if result[1] then
+                propertiesNew = json.decode(result[1].mods)
+                if properties.doorStatus then
+                    propertiesNew.doorStatus = properties.doorStatus
+                end
+                if properties.tireHealth then
+                    propertiesNew.tireHealth = properties.tireHealth
+                end
+                if properties.oilLevel then
+                    propertiesNew.oilLevel = properties.oilLevel
+                end
+                if properties.bodyHealth then
+                    propertiesNew.bodyHealth = properties.bodyHealth
+                end
+                if properties.tireBurstCompletely then
+                    propertiesNew.tireBurstCompletely = properties.tireBurstCompletely
+                end
+                if properties.windowStatus then
+                    propertiesNew.windowStatus = properties.windowStatus
+                end
+                if properties.tankHealth then
+                    propertiesNew.tankHealth = properties.tankHealth
+                end
+                if properties.tireBurstState then
+                    propertiesNew.tireBurstState = properties.tireBurstState
+                end
+                if properties.dirtLevel then
+                    propertiesNew.dirtLevel = properties.dirtLevel
+                end
+            end
+            MySQL.update('UPDATE player_vehicles SET state = ?, garage = ?, fuel = ?, engine = ?, body = ?, mods = ?, parkingspot = ? WHERE plate = ?',{state, garage, fuel, engine, body, json.encode(propertiesNew), json.encode(location), plate})
         end
     else
         if Config.StoreDamageAccuratly then
             MySQL.update('UPDATE player_vehicles SET state = ?, garage = ?, fuel = ?, engine = ?, body = ?, mods = ?, damage = ? WHERE plate = ?',{state, garage, fuel, engine, body, json.encode(properties), json.encode(damage), plate})
         else
-            MySQL.update('UPDATE player_vehicles SET state = ?, garage = ?, fuel = ?, engine = ?, body = ?, mods = ? WHERE plate = ?', {state, garage, fuel, engine, body, json.encode(properties), plate})
+            local result = MySQL.query.await('SELECT mods FROM player_vehicles WHERE plate = ?', {plate})
+            local propertiesNew = properties
+            if result[1] then
+                propertiesNew = json.decode(result[1].mods)
+                if properties.doorStatus then
+                    propertiesNew.doorStatus = properties.doorStatus
+                end
+                if properties.tireHealth then
+                    propertiesNew.tireHealth = properties.tireHealth
+                end
+                if properties.oilLevel then
+                    propertiesNew.oilLevel = properties.oilLevel
+                end
+                if properties.bodyHealth then
+                    propertiesNew.bodyHealth = properties.bodyHealth
+                end
+                if properties.tireBurstCompletely then
+                    propertiesNew.tireBurstCompletely = properties.tireBurstCompletely
+                end
+                if properties.windowStatus then
+                    propertiesNew.windowStatus = properties.windowStatus
+                end
+                if properties.tankHealth then
+                    propertiesNew.tankHealth = properties.tankHealth
+                end
+                if properties.tireBurstState then
+                    propertiesNew.tireBurstState = properties.tireBurstState
+                end
+                if properties.dirtLevel then
+                    propertiesNew.dirtLevel = properties.dirtLevel
+                end
+            end
+            MySQL.update('UPDATE player_vehicles SET state = ?, garage = ?, fuel = ?, engine = ?, body = ?, mods = ? WHERE plate = ?', {state, garage, fuel, engine, body, json.encode(propertiesNew), plate})
         end
     end
 end)
