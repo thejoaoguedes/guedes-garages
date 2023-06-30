@@ -128,7 +128,6 @@ Config.JobVehicles = {
                 ["npolexp"] = "PD Explorer",
                 ["mbu1rb"] = "PD Bike",
                 ["pd_dirtbike"] = "PD Sanchez",
-
             },
             [2] = {
                 ["npolvic"] = "PD Victoria",
@@ -150,6 +149,7 @@ Config.JobVehicles = {
                 ["npolexp"] = "PD Explorer",
                 ["mbu1rb"] = "PD Bike",
                 ["pd_dirtbike"] = "PD Sanchez",
+                ["polcoq4"] = "Corvette Police",
             },
             [5] = {
                 ["npolvic"] = "PD Victoria",
@@ -157,6 +157,7 @@ Config.JobVehicles = {
                 ["npolexp"] = "PD Explorer",
                 ["mbu1rb"] = "PD Bike",
                 ["pd_dirtbike"] = "PD Sanchez",
+                ["polcoq4"] = "Corvette Police",
             },
             [6] = {
                 ["npolvic"] = "PD Victoria",
@@ -164,6 +165,7 @@ Config.JobVehicles = {
                 ["npolexp"] = "PD Explorer",
                 ["mbu1rb"] = "PD Bike",
                 ["pd_dirtbike"] = "PD Sanchez",
+                ["polcoq4"] = "Corvette Police",
             },
         }
     },
