@@ -2083,6 +2083,31 @@ Config.Garages = {
         },
         debug = false
     },
+    ['oneil'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(2411.54, 4984.2),
+                vector2(2406.82, 4988.67),
+                vector2(2415.11, 4996.42),
+                vector2(2419.31, 4992.13)
+            },
+            ['minZ'] = 45.0,  -- min height of the parking zone
+            ['maxZ'] = 55.0,  -- max height of the parking zone
+
+        },
+        label = "O'neil Parking",
+        showBlip = false,
+        blipcoords = vector3(1689.03, 4773.71, 41.92),
+        blipName = 'Estacionamento',
+        blipNumber = 607,
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(2413.2, 4990.62, 45.94, 133.35)
+        },
+        debug = false
+    },
     ['hpgarage'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
