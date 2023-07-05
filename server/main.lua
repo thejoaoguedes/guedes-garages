@@ -134,10 +134,7 @@ QBCore.Functions.CreateCallback('qb-garage:server:spawnvehicle', function (sourc
     local netID = QBCore.Functions.CreateVehicleServer(source, vehInfo.vehicle, coords, warp)
     local veh = NetworkGetEntityFromNetworkId(netID)
 
-    print('NETID ', netID, ' - ENT ',veh)
-
     if not netID or not veh then
-        print('ISSUE HERE', netID, veh)
         while not netID or not veh do
             if netID then
                 veh = NetworkGetEntityFromNetworkId(netID)
