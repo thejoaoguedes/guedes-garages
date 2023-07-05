@@ -818,7 +818,7 @@ RegisterNetEvent("qb-garages:client:GarageMenu", function(data)
                 else
                     MenuGarageOptions[#MenuGarageOptions+1] = {
                         header = Lang:t('menu.header.garage', {value = vname, value2 = v.plate}),
-                        txt = Lang:t('menu.text.garage', {value = v.state, value2 = currentFuel, value3 = enginePercent, value4 = bodyPercent}),
+                        txt = Lang:t('menu.text.garage', {value = v.state, value2 = currentFuel, value3 = enginePercent, value4 = bodyPercent, value5 = vehData.class}),
                         params = {
                             event = "qb-garages:client:TakeOutGarage",
                             args = {

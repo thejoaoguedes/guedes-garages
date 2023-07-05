@@ -45,7 +45,7 @@ local Translations = {
             vehicles = "Veículos",
             vehicles2 = "Veja os veículos estacionados!",
             depot = "Placa: %{value} \n Combustível: %{value2} | Motor: %{value3} | Lataria: %{value4}",
-            garage = "Estado: %{value} \n Combustível: %{value2} | Motor: %{value3} | Lataria: %{value4}",
+            garage = "Estado: %{value} \n Combustível: %{value2} | Motor: %{value3} | Lataria: %{value4} | Classe: %{value5}",
         }
     },
     status = {
