@@ -784,13 +784,15 @@ RegisterNetEvent("qb-garages:client:GarageMenu", function(data)
                 local bodyPercent = Round(v.body / 10, 0)
                 local currentFuel = v.fuel
                 local vehData = QBCore.Shared.Vehicles[v.vehicle]
-                local vname = 'Vehicle does not exist'
+                local vname = 'Veículo não existe'
+                local vclass = 'N/A'
                 if vehData then
                     local vehCategories = GetVehicleCategoriesFromClass(GetVehicleClassFromName(v.vehicle))
                     if garage and garage.vehicleCategories and not TableContains(garage.vehicleCategories, vehCategories) then
                         goto continue
                     end
                     vname = vehData.name
+                    vclass = vehData.class and vehData.class or QBCore.Shared.Vehicles2[vehData.hash].type == 'bike' and 'M' or 'N/A'
                 end
 
                 if v.state == 0 then
@@ -818,7 +820,7 @@ RegisterNetEvent("qb-garages:client:GarageMenu", function(data)
                 else
                     MenuGarageOptions[#MenuGarageOptions+1] = {
                         header = Lang:t('menu.header.garage', {value = vname, value2 = v.plate}),
-                        txt = Lang:t('menu.text.garage', {value = v.state, value2 = currentFuel, value3 = enginePercent, value4 = bodyPercent, value5 = vehData.class}),
+                        txt = Lang:t('menu.text.garage', {value = v.state, value2 = currentFuel, value3 = enginePercent, value4 = bodyPercent, value5 = vclass}),
                         params = {
                             event = "qb-garages:client:TakeOutGarage",
                             args = {
