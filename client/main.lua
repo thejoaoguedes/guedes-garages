@@ -966,8 +966,11 @@ RegisterNetEvent('qb-garages:client:OpenHouseGarage', function()
 end)
 
 RegisterNetEvent('qb-garages:client:setHouseGarage', function(house, hasKey)
+    house = 'house '..house
+
     if hasKey then
-        if Config.HouseGarages[house] and Config.HouseGarages[house].takeVehicle.x then
+        local houseGarage = Config.HouseGarages[house]
+        if houseGarage and houseGarage.takeVehicle.x then
             RegisterHousePoly(house)
         end
     else
@@ -979,15 +982,27 @@ RegisterNetEvent('qb-garages:client:houseGarageConfig', function(garageConfig)
     for _,v in pairs(garageConfig) do
         v.vehicleCategories = Config.HouseGarageCategories
     end
-    Config.HouseGarages = garageConfig
-    HouseGarages = garageConfig
+
+    local garageConfig2 = {}
+
+    for _,v in pairs(garageConfig) do
+        local value = v
+        local name = 'house '.._
+        garageConfig2[name] = value
+    end
+
+    Config.HouseGarages = garageConfig2
+    HouseGarages = garageConfig2
 end)
 
 RegisterNetEvent('qb-garages:client:addHouseGarage', function(house, garageInfo)
+    house = 'house '..house
+
     garageInfo.vehicleCategories = Config.HouseGarageCategories
     Config.HouseGarages[house] = garageInfo
     HouseGarages[house] = garageInfo
 end)
+
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     PlayerData = QBCore.Functions.GetPlayerData()

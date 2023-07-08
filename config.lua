@@ -332,7 +332,7 @@ Config.RestoreCommandPermissionLevel = 'god' -- sets the permission level for th
 -- Here you can define which category contains which vehicle class. These categories can then be used in the garage config
 -- All vehicle classes can be found here: https://docs.fivem.net/natives/?_0x29439776AAA00A62
 Config.VehicleCategories = {
-    ['car'] = { 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12 },
+    ['car'] = { 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 17, 20 },
     ['motorcycle'] = { 8 },
     ['other'] = { 13 }, -- cycles: 13 - you can move cycles to cars if you want and have anything else like military vehicles in this category
     ['boat'] = { 14 },

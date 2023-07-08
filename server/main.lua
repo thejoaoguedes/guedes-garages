@@ -649,3 +649,40 @@ end)
 exports('CheckVehicleIsOwned', function(plate)
     return OutsideVehicles[plate]
 end)
+
+CreateThread(function ()
+    while true do
+        local houses = exports['qs-housing']:GetHouses()
+        local housesNames = {}
+        local housesOwners = {}
+
+        for key, value in pairs(houses) do
+            local houseName = 'house '..key
+
+            if value?.keys and value?.keys[1] then
+                housesOwners[houseName] = value.keys
+            else
+                housesOwners[houseName] = value.identifier
+            end
+
+            table.insert(housesNames, houseName)
+        end
+
+        local housesVehicles = MySQL.query.await("SELECT * FROM player_vehicles WHERE garage LIKE 'house %%'")
+        for key, value in pairs(housesVehicles) do
+            if type(housesOwners[value.garage]) == 'table' then
+                if not lib.table.contains(housesOwners[value.garage], value.citizenid) then
+                    MySQL.update("UPDATE player_vehicles SET garage = ? WHERE citizenid = ? and garage = ?", {'pillboxgarage', value.citizenid, value.garage})
+                end
+            else
+                if housesOwners[value.garage] ~= value.citizenid then
+                    MySQL.update("UPDATE player_vehicles SET garage = ? WHERE citizenid = ? and garage = ?", {'pillboxgarage', value.citizenid, value.garage})
+                end
+            end
+        end
+
+        MySQL.update("UPDATE player_vehicles SET garage = ? WHERE garage LIKE 'house %%' AND garage NOT IN ('" .. table.concat(housesNames, "', '") .. "')", {'pillboxgarage'})
+
+        Wait(20000)
+    end
+end)
