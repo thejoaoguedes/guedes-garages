@@ -1853,6 +1853,128 @@ Config.Garages = {
         },
         debug = false
     },
+    ['pdgarage3'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(820.43865966797, -1261.0440673828),
+                vector2(820.54815673828, -1255.1804199219),
+                vector2(835.59722900391, -1254.9847412109),
+                vector2(835.65051269531, -1260.9693603516)
+            },
+            ['minZ'] = 24.0,  -- min height of the parking zone
+            ['maxZ'] = 28.0,  -- max height of the parking zone
+        },
+        label = 'La Mesa Garage',
+        type = 'job',
+        job = "police",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'pd1',
+        vehicleCategories = {'emergency'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(827.94, -1257.82, 25.53, 180.77),
+            vector4(822.91, -1257.82, 25.5, 179.99),
+            vector4(833.41, -1258.32, 25.58, 179.8)
+        },
+        debug = false
+    },
+    ['pdgarage4'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(448.10610961914, -1028.0661621094),
+                vector2(447.59457397461, -1021.4690551758),
+                vector2(436.97402954102, -1021.9959106445),
+                vector2(437.28436279297, -1029.2666015625)
+            },
+            ['minZ'] = 26.0,  -- min height of the parking zone
+            ['maxZ'] = 30.0,  -- max height of the parking zone
+        },
+        label = 'Mission Ron Garage',
+        type = 'job',
+        job = "police",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'pd1',
+        vehicleCategories = {'emergency'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(438.77, -1026.21, 28.03, 3.38),
+            vector4(442.58, -1026.52, 27.96, 4.19),
+            vector4(446.23, -1025.67, 27.89, 3.31)
+        },
+        debug = false
+    },
+    ['pdgarage5'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(-576.12817382813, -154.64939880371),
+                vector2(-579.1845703125, -146.83903503418),
+                vector2(-569.08612060547, -142.19883728027),
+                vector2(-565.72229003906, -150.17321777344)
+            },
+            ['minZ'] = 35.0,  -- min height of the parking zone
+            ['maxZ'] = 39.0,  -- max height of the parking zone
+        },
+        label = 'Police Jud Garage',
+        type = 'job',
+        job = "police",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'pd1',
+        vehicleCategories = {'emergency'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(-569.64, -145.79, 37.06, 203.37),
+            vector4(-576.32, -148.42, 37.04, 204.58)
+        },
+        debug = false
+    },
+    ['pdgarage6'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(-1128.5634765625, -839.99224853516),
+                vector2(-1123.2807617188, -835.67163085938),
+                vector2(-1117.2722167969, -843.06896972656),
+                vector2(-1122.9331054688, -848.13714599609)
+            },
+            ['minZ'] = 11.0,  -- min height of the parking zone
+            ['maxZ'] = 15.0,  -- max height of the parking zone
+        },
+        label = 'Police Vespucci',
+        type = 'job',
+        job = "police",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'pd1',
+        vehicleCategories = {'emergency'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(-1123.69, -838.5, 12.63, 128.17),
+            vector4(-1120.46, -842.26, 12.62, 127.97)
+        },
+        debug = false
+    },
+    ['pdgarage7'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(-480.03295898438, 6031.7397460938),
+                vector2(-476.05120849609, 6027.5888671875),
+                vector2(-468.58120727539, 6034.92578125),
+                vector2(-472.38098144531, 6039.1362304688)
+            },
+            ['minZ'] = 29.0,  -- min height of the parking zone
+            ['maxZ'] = 33.0,  -- max height of the parking zone
+        },
+        label = 'Paleto DP',
+        type = 'job',
+        job = "police",
+        useVehicleSpawner = true,
+        jobGarageIdentifier = 'pd1',
+        vehicleCategories = {'emergency'},
+        drawText = 'Estacionamento',
+        ["ParkingSpots"] = {
+            vector4(-472.37, 6035.34, 30.59, 225.2),
+            vector4(-475.8, 6031.68, 30.59, 223.67)
+        },
+        debug = false
+    },
     ['pdheli'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
