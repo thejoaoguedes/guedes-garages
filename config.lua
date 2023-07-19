@@ -262,16 +262,16 @@ Config.JobVehicles = {
         job = 'ottos',
         vehicles = {
             [0] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [1] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [2] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [3] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
         }
     },
@@ -280,16 +280,16 @@ Config.JobVehicles = {
         job = 'harmony',
         vehicles = {
             [0] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [1] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [2] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [3] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
         }
     },
@@ -298,16 +298,16 @@ Config.JobVehicles = {
         job = 'xnoz',
         vehicles = {
             [0] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [1] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [2] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [3] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
         }
     },
@@ -316,16 +316,16 @@ Config.JobVehicles = {
         job = 'bikers',
         vehicles = {
             [0] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [1] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [2] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
             [3] = {
-                ["flatbedm2"] = "Guincho",
+                ["flatbed"] = "Guincho",
             },
         }
     },
